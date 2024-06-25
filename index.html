@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://kit.fontawesome.com/1623055e07.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    
+    <section id="game-container" class="h-screen bg-gray-200 p-10 overflow-hidden flex flex-col justify-start items-center">
+
+        <div id="heading" class="p-4 flex justify-center items-center">
+            <h1 class="text-4xl font-extrabold border-black border-b-2 p-1">TIC TAC TOE</h1>
+        </div>
+
+        <div id="game-area" class="p-4 mt-12 shadow-lg flex flex-col justify-start items-center">
+
+            <div id="game-box" class="p-4 flex gap-1 justify-center items-center w-[250px] flex-wrap my-2">
+                <div id="1" class="box p-2 h-[60px] w-[60px] flex justify-center items-center bg-blue-500 hover:cursor-pointer hover:bg-blue-600 duration-300"></div>
+                <div id="2" class="box p-2 h-[60px] w-[60px] flex justify-center items-center bg-blue-500 hover:cursor-pointer hover:bg-blue-600 duration-300"></div>
+                <div id="3" class="box p-2 h-[60px] w-[60px] flex justify-center items-center bg-blue-500 hover:cursor-pointer hover:bg-blue-600 duration-300"></div>
+                <div id="4" class="box p-2 h-[60px] w-[60px] flex justify-center items-center bg-blue-500 hover:cursor-pointer hover:bg-blue-600 duration-300"></div>
+                <div id="5" class="box p-2 h-[60px] w-[60px] flex justify-center items-center bg-blue-500 hover:cursor-pointer hover:bg-blue-600 duration-300"></div>
+                <div id="6" class="box p-2 h-[60px] w-[60px] flex justify-center items-center bg-blue-500 hover:cursor-pointer hover:bg-blue-600 duration-300"></div>
+                <div id="7" class="box p-2 h-[60px] w-[60px] flex justify-center items-center bg-blue-500 hover:cursor-pointer hover:bg-blue-600 duration-300"></div>
+                <div id="8" class="box p-2 h-[60px] w-[60px] flex justify-center items-center bg-blue-500 hover:cursor-pointer hover:bg-blue-600 duration-300"></div>
+                <div id="9" class="box p-2 h-[60px] w-[60px] flex justify-center items-center bg-blue-500 hover:cursor-pointer hover:bg-blue-600 duration-300"></div>
+            </div>
+        
+        </div>
+
+        <div id="text-area" class="my-4 mt-6 font-bold text-2xl">
+            <span class="text-2xl font-bold"><i class="fa-solid fa-check"></i></span> turn
+        </div>
+            
+        <div id="restart" class="hidden">
+            <button id="restart" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded  mt-6">
+                Restart Game
+            </button>
+        </div>
+        
+        <div id="border-line" class="w-[275px] border-b-2 border-black/20 mt-4"></div>
+
+        <div id="score" class="flex flex-col w-[250px] p-2 ">
+            <div  class=" p-1 flex justify-evenly">
+                <span class="text-2xl  font-bold"><i class="fa-solid fa-xmark"></i></span>
+                <span id="score-1" class="text-2xl  font-bold">0</span>
+            </div>
+            <div  class=" p-1 flex justify-evenly">
+                <span class="text-2xl  font-bold p-1"><i class="fa-solid fa-check"></i></span>
+                <span id="score-2" class="text-2xl  font-bold">0</span>
+            </div>
+        </div>
+
+        
+
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
