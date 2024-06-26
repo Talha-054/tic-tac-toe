@@ -1,0 +1,16 @@
+@keyframes slider {
+    0% {
+        left: -25%;
+    }
+    50% {
+        left: 75%;
+    }
+    100% {
+        left: -25%;
+    }
+}
+
+
+#bar {
+    animation: slider 2s infinite cubic-bezier(0.58, 0.99, 0.58, 1) forwards;
+}

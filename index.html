@@ -3,16 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>tic tac toe</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://kit.fontawesome.com/1623055e07.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     
     <section id="game-container" class="h-screen bg-gray-200 p-10 overflow-hidden flex flex-col justify-start items-center">
 
-        <div id="heading" class="p-4 flex justify-center items-center">
-            <h1 class="text-4xl font-extrabold border-black border-b-2 p-1">TIC TAC TOE</h1>
+        <div id="heading" class="p-1 flex justify-center items-center relative overflow-hidden">
+            <h1 class="text-4xl font-extrabold  p-1">TIC TAC TOE</h1>
+            <div class="h-[4px] bg-black/20 w-[250px] absolute bottom-0 rounded-lg"></div>
+            <div id="bar" class="rounded-lg h-[4px] bg-blue-500 w-[125px] absolute bottom-0"></div>
         </div>
 
         <div id="game-area" class="p-4 mt-12 shadow-lg flex flex-col justify-start items-center">

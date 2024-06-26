@@ -16,6 +16,7 @@ let player_2_moves = [];
 
 let player_1_score = 0;
 let player_2_score = 0;
+let moves = 0;
 
 let winning_moves = [
                     ['1','2','3'],['4','5','6'],['7','8','9'],
@@ -36,12 +37,19 @@ function userChoice(e){
         player_1 = !player_1
         player_1_moves.push(e.target.id)
         display.innerHTML = cross2 + " " + 'turn'
+        moves++
+        if(moves == 9){
+            draw()
+        }
     }else{
         e.target.innerHTML = cross
         player_1 = !player_1
         player_2_moves.push(e.target.id)
         display.innerHTML = tic2 + " " + 'turn'
-
+        moves++
+        if(moves == 9){
+            draw()
+        }
     }
     boxes.forEach((box)=>{
         if(e.target.id == box.id){
@@ -65,8 +73,7 @@ function win_check(){
                     }
                 }
                 if(streak == 3){
-                    display.innerHTML = cross2 + ' ' + 'win'
-                    restart.classList.remove('hidden')
+                    display.innerHTML = cross2 + ' ' + 'WIN'
                     player_1_score ++;
                     score_1.innerText = player_1_score
                     winnning_pattern = JSON.parse(JSON.stringify(pattern))
@@ -88,8 +95,7 @@ function win_check(){
                     }
                 }
                 if(streak == 3){
-                    display.innerHTML = tic2 + ' ' + 'win'
-                    restart.classList.remove('hidden')
+                    display.innerHTML = tic2 + ' ' + 'WIN'
                     player_2_score ++;
                     score_2.innerText = player_2_score
                     winnning_pattern = JSON.parse(JSON.stringify(pattern))
@@ -105,6 +111,7 @@ function win_check(){
 
 
 function gameOver(){
+    restart.classList.remove('hidden')
     boxes.forEach((box)=>{
         box.removeEventListener('click', userChoice);
         box.removeEventListener('click', win_check);
@@ -115,6 +122,16 @@ function gameOver(){
             }
         })
     })
+}
+
+
+function draw (){
+    display.innerHTML = 'DRAW'
+    restart.classList.remove('hidden')
+    boxes.forEach((box)=>{
+        box.removeEventListener('click', userChoice);
+        box.removeEventListener('click', win_check);
+    })   
 }
 
 
@@ -144,4 +161,5 @@ restart.addEventListener('click',()=>{
     restart.classList.add('hidden')
     player_1_moves = []
     player_2_moves = []
+    moves = 0
 })
