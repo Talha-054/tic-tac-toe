@@ -10,6 +10,7 @@ let cross2 = '<span class="text-2xl  font-bold"><i class="fa-solid fa-xmark"></i
 let tic2 = '<span class="text-2xl  font-bold"><i class="fa-solid fa-check"></i></span>';
 
 let player_1 = true;
+let win = false;
 
 let player_1_moves = [];
 let player_2_moves = [];
@@ -37,8 +38,9 @@ function userChoice(e){
         player_1 = !player_1
         player_1_moves.push(e.target.id)
         display.innerHTML = cross2 + " " + 'turn'
+        win_check()
         moves++
-        if(moves == 9){
+        if(moves == 9 && !win){
             draw()
         }
     }else{
@@ -46,8 +48,9 @@ function userChoice(e){
         player_1 = !player_1
         player_2_moves.push(e.target.id)
         display.innerHTML = tic2 + " " + 'turn'
+        win_check()
         moves++
-        if(moves == 9){
+        if(moves == 9 && !win){
             draw()
         }
     }
@@ -73,6 +76,7 @@ function win_check(){
                     }
                 }
                 if(streak == 3){
+                    win = true
                     display.innerHTML = cross2 + ' ' + 'WIN'
                     player_1_score ++;
                     score_1.innerText = player_1_score
@@ -95,6 +99,7 @@ function win_check(){
                     }
                 }
                 if(streak == 3){
+                    win = true
                     display.innerHTML = tic2 + ' ' + 'WIN'
                     player_2_score ++;
                     score_2.innerText = player_2_score
@@ -135,14 +140,8 @@ function draw (){
 }
 
 
-
-
-
-
-
 boxes.forEach((box)=>{
     box.addEventListener('click', userChoice);
-    box.addEventListener('click', win_check);
 })
 
 
@@ -162,4 +161,5 @@ restart.addEventListener('click',()=>{
     player_1_moves = []
     player_2_moves = []
     moves = 0
+    win = false
 })
