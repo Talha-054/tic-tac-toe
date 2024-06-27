@@ -38,7 +38,7 @@ function userChoice(e){
         player_1 = !player_1
         player_1_moves.push(e.target.id)
         display.innerHTML = cross2 + " " + 'turn'
-        win_check()
+        player_1_moves.length>2 ? win_check():null
         moves++
         if(moves == 9 && !win){
             draw()
@@ -48,7 +48,7 @@ function userChoice(e){
         player_1 = !player_1
         player_2_moves.push(e.target.id)
         display.innerHTML = tic2 + " " + 'turn'
-        win_check()
+        player_2_moves.length>2 ? win_check():null
         moves++
         if(moves == 9 && !win){
             draw()
@@ -150,11 +150,7 @@ restart.addEventListener('click',()=>{
         box.innerHTML = ''
         box.addEventListener('click', userChoice);
         box.addEventListener('click', win_check);
-        winnning_pattern.forEach((no)=>{
-            if (no == box.id){
-                box.classList.remove('bg-blue-800')
-            }
-        })
+        box.classList.remove('bg-blue-800')
     })
     display.innerHTML = tic2 + " " + 'turn'
     restart.classList.add('hidden')
